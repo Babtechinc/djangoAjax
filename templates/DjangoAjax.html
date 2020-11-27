@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>DjangoAjax</title>
+</head>
+<body>
+<div id="div1">   </div>
+
+</body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<script>
+    setInterval(function() {
+    $.ajax({
+        url: '/all',
+        type: "GET",
+        success: function(result) {
+            // Update table
+          //  for (i =0;i<result.length,i++)
+              div1.innerHTML = ''
+          for (x in result) {
+              div1 = document.querySelector('#div1')
+
+              div1.innerHTML += '<p>'+result[x].msg+'</p>'
+
+}
+
+
+        }
+    });
+}, 20000); // Number of milliseconds to recheck
+</script>
+</html>
